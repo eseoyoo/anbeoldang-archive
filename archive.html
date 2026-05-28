@@ -758,24 +758,4 @@ function openLightbox(idx) {
   current = idx;
   document.getElementById('lb-img').src = images[idx].src;
   document.getElementById('lb-caption').textContent = images[idx].caption;
-  document.getElementById('lightbox').classList.add('open');
-}
-function closeLightbox(e) {
-  if (!e || e.target === document.getElementById('lightbox') || e.target.classList.contains('lb-close')) {
-    document.getElementById('lightbox').classList.remove('open');
-  }
-}
-function navLightbox(dir) {
-  current = (current + dir + images.length) % images.length;
-  document.getElementById('lb-img').src = images[current].src;
-  document.getElementById('lb-caption').textContent = images[current].caption;
-}
-document.addEventListener('keydown', e => {
-  if (!document.getElementById('lightbox').classList.contains('open')) return;
-  if (e.key === 'Escape') closeLightbox({target: document.getElementById('lightbox')});
-  if (e.key === 'ArrowLeft') navLightbox(-1);
-  if (e.key === 'ArrowRight') navLightbox(1);
-});
-</script>
-</body>
-</html>
+ 
