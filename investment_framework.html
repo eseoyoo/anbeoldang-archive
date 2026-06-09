@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>투자 우선순위 프레임워크</title>
+<style>
+  :root {
+    --bg: #f5f5f0;
+    --card: #ffffff;
+    --accent: #3d7a5e;
+    --accent-light: #eaf3ee;
+    --text: #222;
+    --sub: #666;
+    --border: #e0e0d8;
+    --tag-bg: #e8f4ee;
+    --tag-color: #2d6b4e;
+    --warn-bg: #fff8e8;
+    --warn-border: #e8c84a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+  }
+
+  .site-header {
+    background: var(--accent);
+    color: white;
+    padding: 36px 32px 28px;
+  }
+  .site-header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; }
+  .site-header p { margin-top: 6px; opacity: 0.82; font-size: 0.92rem; }
+
+  .container { max-width: 860px; margin: 0 auto; padding: 36px 20px 80px; }
+
+  /* STEP BLOCK */
+  .step {
+    margin-bottom: 40px;
+  }
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .step-num {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.3px;
+  }
+  .step-sub {
+    font-size: 0.85rem;
+    color: var(--sub);
+    margin-top: 2px;
+  }
+
+  /* CARD */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin-bottom: 12px;
+  }
+  .card-title {
+    font-weight: 700;
+    font-size: 0.97rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-title .icon { font-size: 1.1rem; }
+  .item-list {
+    list-style: none;
+    font-size: 0.9rem;
+    color: #444;
+  }
+  .item-list li {
+    padding: 5px 0;
+    padding-left: 1.1em;
+    position: relative;
+  }
+  .item-list li::before {
+    content: '▪';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.75rem;
+    top: 7px;
+  }
+  .item-list li.sub {
+    padding-left: 2.2em;
+    color: #555;
+  }
+  .item-list li.sub::before {
+    left: 1.1em;
+    color: #aaa;
+  }
+
+  /* NOTICE */
+  .notice {
+    background: var(--warn-bg);
+    border: 1px solid var(--warn-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.87rem;
+    color: #555;
+    margin-top: 10px;
+  }
+  .notice strong { color: #333; }
+
+  /* CONNECTOR */
+  .connector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 4px 0 4px 17px;
+    color: var(--sub);
+    font-size: 0.8rem;
+  }
+  .connector::before {
+    content: '';
+    width: 2px;
+    height: 20px;
+    background: var(--border);
+    display: block;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--sub);
+    font-size: 0.8rem;
+    padding: 20px;
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>📊 투자 우선순위 프레임워크</h1>
+  <p>통화가치 희석률 5~7% 방어를 목표로 한 자산 배분 의사결정 순서</p>
+</header>
+
+<div class="container">
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">전체 자산 배분 비중 결정</div>
+        <div class="step-sub">통화가치 희석률 5~7% 방어 가능한 구조로 배분</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🏦</span> 금융자산</div>
+      <ul class="item-list">
+        <li>예금</li>
+        <li>주식</li>
+        <li>채권</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🏠</span> 비금융자산</div>
+      <ul class="item-list">
+        <li>부동산</li>
+        <li>자동차</li>
+        <li>금</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">📉</span> 부채</div>
+      <ul class="item-list">
+        <li>주택담보대출</li>
+        <li>신용대출</li>
+        <li>전세대출</li>
+        <li>마통</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="connector">1단계 비중 확정 후 2단계로</div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">각 자산 내 비중 및 성격 결정</div>
+        <div class="step-sub">자산군별 세부 구성 및 특성 정의</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">📈</span> 주식 — 국가별 비중</div>
+      <ul class="item-list">
+        <li>국가별 투자 비중 결정</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🏗</span> 부동산 — 유형별 분류</div>
+      <ul class="item-list">
+        <li>아파트</li>
+        <li>단독</li>
+        <li>오피스텔</li>
+        <li>빌라</li>
+      </ul>
+      <div class="notice">
+        <strong>전세는 부동산이 아닌 현금으로 분류</strong><br>
+        전세 거주 시 무조건 풀 대출을 받아 다른 자산 보유 필요
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">💳</span> 부채 — 금리 유형</div>
+      <ul class="item-list">
+        <li>고정금리</li>
+        <li>변동금리</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="connector">2단계 구성 확정 후 3단계로</div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">세부 종목 및 지역 선택</div>
+        <div class="step-sub">가장 마지막에 결정하는 항목</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🔍</span> 주식 종목 선택</div>
+      <ul class="item-list">
+        <li>전업 투자자가 아니라면 지수 기반 액티브 ETF가 좋다는 방장의 생각</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">📍</span> 부동산 지역 선택</div>
+      <ul class="item-list">
+        <li>어디에 살 것인지, 어디에 투자할 것인지 결정</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<footer>안벌당-BLC 투자 우선순위 프레임워크 · 2026.05.30</footer>
+
+</body>
+</html>
